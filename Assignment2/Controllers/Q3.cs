@@ -34,16 +34,16 @@ namespace Assignment2.Controllers
         /// <example>
         /// GET api/Q2/
         /// </example>
-        [HttpGet(template:"ChiliPeppers/{Amount}")]
-        public string Spiciness(int Amount, string Ingredients)
+        [HttpGet(template:"ChiliPeppers&Ingredients={Ingredients}")]
+        public string Spiciness(string Ingredients)
+        // public string Spiciness(int Amount, string Ingredients)
         {
             string[] value = Ingredients.Split(',');
 
-            if (value.Length != Amount)
-            {
-                return "Sorry, the number of Ingredients doesn't match the number of ChiliPeppers.";
-            }
-            // var value = Ingredients.Split(',');
+            // if (value.Length != Amount)
+            // {
+            //     return "Sorry, the number of Ingredients doesn't match the number of ChiliPeppers.";
+            // }
             int spiciness = 0;
 
             foreach (string pepper in value)
