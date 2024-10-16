@@ -39,14 +39,14 @@ namespace Assignment2.Controllers
         /// DATA:   collisions=6&deliveries=7 -> 790
         /// </example>
         [HttpPost(template:"Delivedroid")]
-        public string Delivedroid([FromForm]int collisions, [FromForm]int deliveries)
+        public int Delivedroid([FromForm]int collisions, [FromForm]int deliveries)
         {
             int score = deliveries * 50 - collisions * 10;
             if (deliveries > collisions) 
             {
                 score += 500;
             } 
-            return score.ToString();
+            return score;
         }
     }
 }

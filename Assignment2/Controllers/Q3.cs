@@ -8,8 +8,8 @@ namespace Assignment2.Controllers
     public class Q3 : ControllerBase
     {
         /// <summary>
-        /// Determine  the total spiciness of Ron’s chili after he has finished adding peppers.
-        /// Ron’s chili is currently not spicy at all, but each time Ron adds a pepper, the total spiciness of the chili increases by the SHU value of that pepper.
+        /// Determine  the total shu of Ron’s chili after he has finished adding peppers.
+        /// Ron’s chili is currently not spicy at all, but each time Ron adds a pepper, the total shu of the chili increases by the SHU value of that pepper.
         /// Poblano = 1500
         /// Mirasol = 6000
         /// Serrano = 15500
@@ -19,7 +19,7 @@ namespace Assignment2.Controllers
         /// </summary>
         /// <param name="Ingredients">the name of a pepper Ron has added</param>
         /// <returns>
-        /// The total spiciness of Ron’s chili
+        /// The total shu of Ron’s chili
         /// </returns>
         /// <example>
         /// GET api/Q3/ChiliPeppers&Ingredients=Poblano%2CCayenne%2CThai%2CPoblano -> 118000
@@ -34,46 +34,41 @@ namespace Assignment2.Controllers
         /// GET api/Q3/ChiliPeppers&Ingredients=Poblano%2CPoblano%2CMirasol%2CMirasol -> 15000
         /// </example>
         [HttpGet(template:"ChiliPeppers&Ingredients={Ingredients}")]
-        public string Spiciness(string Ingredients)
-        // public string Spiciness(int Amount, string Ingredients)
+        public int SHU(string Ingredients)
         {
             string[] value = Ingredients.Split(',');
-
-            // if (value.Length != Amount)
-            // {
-            //     return "Sorry, the number of Ingredients doesn't match the number of ChiliPeppers.";
-            // }
-            int spiciness = 0;
+            
+            int shu = 0;
 
             foreach (string pepper in value)
             {
                 string updatedPepper = pepper.Trim();
                 if (updatedPepper == "Poblano")
                 {
-                    spiciness += 1500;
+                    shu += 1500;
                 }
                 else if  (updatedPepper == "Mirasol")
                 {
-                    spiciness += 6000;
+                    shu += 6000;
                 }
                 else if  (updatedPepper == "Serrano")
                 {
-                    spiciness += 15500;
+                    shu += 15500;
                 }
                 else if  (updatedPepper == "Cayenne")
                 {
-                    spiciness += 40000;
+                    shu += 40000;
                 }
                 else if  (updatedPepper == "Thai")
                 {
-                    spiciness += 75000;
+                    shu += 75000;
                 }
                 else if  (updatedPepper == "Habanero")
                 {
-                    spiciness += 125000;
+                    shu += 125000;
                 }
             }
-            return spiciness.ToString();
+            return shu;
         }
     }
 }
