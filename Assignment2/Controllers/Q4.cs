@@ -8,6 +8,7 @@ namespace Assignment2.Controllers
     public class Q4 : ControllerBase
     {
         /// <summary>
+        /// https://cemc.uwaterloo.ca/sites/default/files/documents/2022/2022CCCJrProblemSet.html 
         /// Fergusonball players are given a star rating based on the number of points that they score and the number of fouls that they commit. 
         /// 5 stars for each point scored
         /// 3 stars are taken away for each foul committed.
